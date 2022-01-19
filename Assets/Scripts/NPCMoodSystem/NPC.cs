@@ -8,8 +8,8 @@ public class NPC : ScriptableObject
     public string _name;
     [TextArea]
     public string description;
-    public float mood = 0f;
-    public float maxMood = 100f;
+    private float mood { get; set; }
+    public float moodGoal = 100f;
     public List<NPCTaskBlueprint> tasks = new List<NPCTaskBlueprint>();
 
     //Function to Recive the Callback that a Task has been Completed
