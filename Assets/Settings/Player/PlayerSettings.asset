@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5fc0d2ae1ff53f8ab5679d42c825ef7, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  groundCheckRadius: 0.25
   walkSpeed: 5
   runSpeed: 10
+  sprintSpeed: 15
+  diferenceStraveSpeed: 0.5
+  acceleration: 0.5
+  deceleration: 0.5
+  someSetting: 2
+  jumpForce: 10
