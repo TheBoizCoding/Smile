@@ -6,6 +6,8 @@ using UnityEngine;
 public class NPCTaskBlueprint
 {
     public NPCTask task;
+    public bool completed;
+    public bool failed;
     public float positiveReward;
     public float negativeReward;
 

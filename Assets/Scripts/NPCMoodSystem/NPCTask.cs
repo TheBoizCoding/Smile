@@ -10,10 +10,18 @@ public class NPCTask : ScriptableObject
     public string description;
     //List to Store the NPCs that subscribed to this Task
     private List<NPC> subscribers = new List<NPC>();
-    //Function to Subscribe a NPC to this Task
+    //Function to Subscribe adn Usubsribe a NPC to this Task
     public void Subscribe(NPC npc)
     {
         subscribers.Add(npc);
+    }
+    public void Unsubscribe(NPC npc)
+    {
+        subscribers.Remove(npc);
+    }
+    public void ClearSubscribers()
+    {
+        subscribers.Clear();
     }
     //Public Function to Complete the Task
     public void Complete(bool positiveSucess)

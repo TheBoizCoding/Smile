@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6c08eed4704ce1cb8d0880baf9b706, type: 3}
   m_Name: "NPC_x\xC6a12_Settings"
   m_EditorClassIdentifier: 
-  name: 
-  description: 
+  _name: "x\xC6a12"
+  description: some dude
+  mood: 0
+  maxMood: 100
+  tasks:
+  - task: {fileID: 11400000, guid: a032278978f7e300eb4bf24c6aee881e, type: 2}
+    completed: 0
+    failed: 0
+    positiveReward: 25
+    negativeReward: -1

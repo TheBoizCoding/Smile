@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8302cb506ab1b1c7973a3e3b063f562, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
+  _name: Test
+  description: lul

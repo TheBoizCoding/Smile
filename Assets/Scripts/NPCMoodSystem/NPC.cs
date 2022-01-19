@@ -8,11 +8,21 @@ public class NPC : ScriptableObject
     public string _name;
     [TextArea]
     public string description;
+    public float mood = 0f;
+    public float maxMood = 100f;
     public List<NPCTaskBlueprint> tasks = new List<NPCTaskBlueprint>();
 
     //Function to Recive the Callback that a Task has been Completed
     public void CompleteTask(NPCTask task, bool positiveSucess)
     {
+        NPCTaskBlueprint taskBlueprint = tasks.Find(x => x.task == task);
+        taskBlueprint.completed = true;
+        taskBlueprint.failed = !positiveSucess;
+        mood += positiveSucess ? taskBlueprint.positiveReward : taskBlueprint.negativeReward;
         Debug.Log("The Task: " + task._name + " has been Completed for the NPC: " + _name);
+    }
+    public void SubscribeToTasks()
+    {
+        tasks.ForEach(x => x.task.Subscribe(this));
     }
 }
