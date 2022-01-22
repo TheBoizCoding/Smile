@@ -7,6 +7,7 @@ public class NPCEditorWindow : EditorWindow
 {
     public NPC npc;
     private NPC npcCopy;
+    private List<NPCTaskBlueprint> tasksCopy;
     private Vector2 scrollPos;
     public static void Open(NPC npc)
     {
@@ -16,6 +17,12 @@ public class NPCEditorWindow : EditorWindow
 
         window.npc = npc;
         window.npcCopy = npc.Copy();
+        window.tasksCopy = new List<NPCTaskBlueprint>();
+        foreach (NPCTaskBlueprint task in npc.tasks)
+        {
+            window.tasksCopy.Add(task.Copy());
+        }
+        window.npcCopy.tasks = window.tasksCopy;
     }
 
     private void OnGUI()
@@ -97,11 +104,23 @@ public class NPCEditorWindow : EditorWindow
         {
             GUI.FocusControl("");
             npc.Copy(npcCopy);
+            npc.tasks = new List<NPCTaskBlueprint>();
+            foreach (NPCTaskBlueprint task in npcCopy.tasks)
+            {
+                npc.tasks.Add(task.Copy());
+            }
+            EditorUtility.SetDirty(npc);
         }
         if (GUILayout.Button("Revert"))
         {
             GUI.FocusControl("");
             npcCopy.Copy(npc);
+            tasksCopy = new List<NPCTaskBlueprint>();
+            foreach (NPCTaskBlueprint task in npc.tasks)
+            {
+                tasksCopy.Add(task.Copy());
+            }
+            npcCopy.tasks = tasksCopy;
         }
         GUILayout.EndHorizontal();
         GUILayout.EndArea();

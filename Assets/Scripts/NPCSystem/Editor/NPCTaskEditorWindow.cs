@@ -48,6 +48,7 @@ public class NPCTaskEditorWindow : EditorWindow
         {
             GUI.FocusControl("");
             npcTask.Copy(npcTaskCopy);
+            EditorUtility.SetDirty(npcTask);
         }
         if (GUILayout.Button("Revert"))
         {
