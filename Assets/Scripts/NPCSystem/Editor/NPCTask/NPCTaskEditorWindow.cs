@@ -21,16 +21,16 @@ public class NPCTaskEditorWindow : EditorWindow
     private void OnGUI()
     {
         // Return if no Refrence
-        if (npcTaskCopy == null) return;
+        if (npcTask == null) return;
 
         // Set Title
         if (npcTaskCopy._name != "")
         {
-            titleContent.text = npcTaskCopy._name;
+            titleContent.text = "Task Editor - " + npcTaskCopy._name;
         }
         else
         {
-            titleContent.text = "NPC Task Editor";
+            titleContent.text = "Task Editor";
         }
 
         // Draw Textfield to change the Task Name

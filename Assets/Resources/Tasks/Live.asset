@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 664ec00bf3eb42fc7bd9e2e2d7c40324, type: 3}
-  m_Name: EatFood
+  m_Name: Live
   m_EditorClassIdentifier: 
-  _name: Eat  da Food
-  description: please do it :)
+  _name: Stay Alive
+  description: just  stay alive

@@ -4,29 +4,29 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.Callbacks;
 
-public class AssetHandler
+public class NPCTaskAssetHandler
 {
     [OnOpenAsset]
     public static bool OpenEditor(int instanceID, int line)
     {
-        NPC npc = EditorUtility.InstanceIDToObject(instanceID) as NPC;
-        if (npc != null)
+        NPCTask task = EditorUtility.InstanceIDToObject(instanceID) as NPCTask;
+        if (task != null)
         {
-            NPCEditorWindow.Open(npc);
+            NPCTaskEditorWindow.Open(task);
             return true;
         }
         return false;
     }
 }
 
-[CustomEditor(typeof(NPC))]
-public class NPCEditor : Editor
+[CustomEditor(typeof(NPCTask))]
+public class NPCTaskEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        if (GUILayout.Button("Open NPC Editor"))
+        if (GUILayout.Button("Open NPCTask Editor"))
         {
-            NPCEditorWindow.Open(target as NPC);
+            NPCTaskEditorWindow.Open(target as NPCTask);
         }
     }
 }

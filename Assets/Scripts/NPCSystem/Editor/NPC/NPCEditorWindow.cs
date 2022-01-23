@@ -12,8 +12,6 @@ public class NPCEditorWindow : EditorWindow
     public static void Open(NPC npc)
     {
         NPCEditorWindow window = GetWindow<NPCEditorWindow>("NPC Editor");
-        window.minSize = new Vector2(350, 600);
-        window.maxSize = new Vector2(350, 600);
 
         window.npc = npc;
         window.npcCopy = npc.Copy();
@@ -28,31 +26,38 @@ public class NPCEditorWindow : EditorWindow
     private void OnGUI()
     {
         // Return if no Refrence
-        if (npcCopy == null) return;
+        if (npc == null) return;
 
         // Set Title
+        CustomEditorStyles.HorizontalLine(new Color(0.3f, 0.3f, 0.3f));
         if (npcCopy._name != "")
         {
             titleContent.text = "NPC Editor - " + npcCopy._name;
+            CustomEditorStyles.CenterdTitle(npcCopy._name);
         }
         else
         {
             titleContent.text = "NPC Editor - No Name";
+            CustomEditorStyles.CenterdTitle("No Name");
         }
+        CustomEditorStyles.HorizontalLine(new Color(0.3f, 0.3f, 0.3f));
 
         // Draw Textfield to change the NPC Name
         npcCopy._name = EditorGUILayout.TextField("Name:", npcCopy._name);
 
         // Draw TextArea to change the NPC Description
+        GUILayout.Label("Description:");
         npcCopy.description = EditorGUILayout.TextArea(npcCopy.description, GUILayout.Height(60));
 
         // Draw The NPC Mood Goal
         npcCopy.moodGoal = EditorGUILayout.FloatField("Mood Goal:", npcCopy.moodGoal);
 
-        // Draw a Container that will hold the NPC Tasks and is scrollable
-        GUILayout.BeginVertical("box");
+        // draw  a horizontal line sepperator
+        CustomEditorStyles.HorizontalLine(new Color(0.3f, 0.3f, 0.3f));
+
+        // Draw a Container that will hold the NPC Tasks and is scrollable and fills the rest of the window
         GUILayout.Label("Tasks:", EditorStyles.boldLabel);
-        scrollPos = GUILayout.BeginScrollView(scrollPos, false, true, GUILayout.Height(250));
+        scrollPos = GUILayout.BeginScrollView(scrollPos, false, true);
         for (int i = 0; i < npcCopy.tasks.Count; i++)
         {
             GUILayout.Label(npcCopy.tasks[i].task is null ? "No Name:" : npcCopy.tasks[i].task._name is "" ? "No Name:" : npcCopy.tasks[i].task._name);
@@ -65,6 +70,7 @@ public class NPCEditorWindow : EditorWindow
                 if (GUILayout.Button("Edit"))
                 {
                     NPCTaskEditorWindow.Open(npcCopy.tasks[i].task);
+                    GUIUtility.ExitGUI();
                 }
             }
             else
@@ -89,16 +95,17 @@ public class NPCEditorWindow : EditorWindow
             GUILayout.EndHorizontal();
         }
         GUILayout.EndScrollView();
-        GUILayout.EndVertical();
-
+        GUILayout.Space(10);
         // Draw a Button to add a new Task
         if (GUILayout.Button("Add Task"))
         {
             npcCopy.tasks.Add(new NPCTaskBlueprint());
         }
 
+        // draw  a horizontal line sepperator
+        CustomEditorStyles.HorizontalLine(new Color(0.3f, 0.3f, 0.3f));
+
         //2 buttons aside, one for save and one for revert in the botoom center
-        GUILayout.BeginArea(new Rect(0, position.height - 50, position.width, 50));
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Save"))
         {
@@ -123,6 +130,5 @@ public class NPCEditorWindow : EditorWindow
             npcCopy.tasks = tasksCopy;
         }
         GUILayout.EndHorizontal();
-        GUILayout.EndArea();
     }
 }

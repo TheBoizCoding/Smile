@@ -1,11 +1,7 @@
 {
-    "name": "NPCSystem.Editor",
+    "name": "Editor.Main",
     "rootNamespace": "",
-    "references": [
-        "GUID:2bafac87e7f4b9b418d9448d219b01ab",
-        "GUID:7117e9c302f4bd56faa4b17e3338a15a",
-        "GUID:8cd8a7ca35a197fb6b3f24be71513214"
-    ],
+    "references": [],
     "includePlatforms": [
         "Editor"
     ],
