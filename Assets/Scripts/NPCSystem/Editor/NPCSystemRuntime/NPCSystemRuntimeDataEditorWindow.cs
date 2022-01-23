@@ -93,7 +93,7 @@ public class NPCSystemRuntimeDataEditorWindow : EditorWindow
         // Draw Buttons to Recalculate the Dictionary and Moods
         if (GUILayout.Button("Recalculate Moods"))
         {
-
+            dataCopy.RecalculateMoods();
         }
 
         CustomEditorStyles.HorizontalLine(new Color(0.3f, 0.3f, 0.3f));

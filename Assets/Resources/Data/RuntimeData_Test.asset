@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f60fd80b141444add06a2fa4450b9, type: 3}
   m_Name: RuntimeData_Test
   m_EditorClassIdentifier: 
-  npcs: []
-  tasks: []
+  npcs:
+  - npc: {fileID: 11400000, guid: 04ff6a0256b3eec108889ff358c69f69, type: 2}
+    mood: 0
+  tasks:
+  - task: {fileID: 11400000, guid: e66d7aa33a6da7e5aaece5c9be3f6dcf, type: 2}
+    isCompleted: 0
+    completedSuccessfully: 0
+  - task: {fileID: 11400000, guid: d04fbcce5070512d68d62f9c233c0caf, type: 2}
+    isCompleted: 0
+    completedSuccessfully: 0

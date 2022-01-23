@@ -37,7 +37,7 @@ public class NPCSystemRuntimeData : ScriptableObject
             }
         }
     }
-    public void RecalculateMood()
+    public void RecalculateMoods()
     {
         foreach (NPCRuntimeBlueprint npc in npcs)
         {
